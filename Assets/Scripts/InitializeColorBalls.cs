@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class InitializeColorBalls : MonoBehaviour
 {
+    public int numberOfBalls;
+    public int range;
+
     public GameObject ColorBall;
 
     // Start is called before the first frame update
@@ -14,9 +17,9 @@ public class InitializeColorBalls : MonoBehaviour
             return;
         }
 
-        for (int i=0; i<100; i++)
+        for (int i=0; i<numberOfBalls; i++)
         {
-            var instance = Instantiate(ColorBall, new Vector3(Random.Range(-100, 100), 1f, Random.Range(-100, 100)), Quaternion.identity);
+            var instance = Instantiate(ColorBall, new Vector3(Random.Range(-range, range), 1f, Random.Range(-range, range)), Quaternion.identity);
             instance.GetComponent<Renderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         }
     }
