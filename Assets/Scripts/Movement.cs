@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
         var vector = new Vector3(movementHorizontal, 0, movementVertical);
         var movement = Quaternion.Euler(0, HorizontalAngle, 0) * vector;
 
-        ball.GetComponent<Rigidbody>().AddForce(movement * BallSpeed * Time.deltaTime);        
+        ball.GetComponent<Rigidbody>().AddForce(movement * BallSpeed * Time.deltaTime, ForceMode.Force);        
     }
 
     private void HandleCameraMovement(Camera camera, GameObject mainBall)

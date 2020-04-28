@@ -194,7 +194,6 @@ GameObject:
   - component: {fileID: 594120891}
   - component: {fileID: 594120890}
   - component: {fileID: 594120889}
-  - component: {fileID: 594120888}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -202,22 +201,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &594120888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 594120887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 758a8c77ce83a4a909e0794d60ec96d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  width: 4000
-  height: 4000
-  depth: 30
-  scale: 28
 --- !u!154 &594120889
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -481,7 +464,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 994331234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10394820d25ac4c7bb73604235e6cf1a, type: 3}
+  m_Script: {fileID: 11500000, guid: c584a9e766bd5482fb793eb18e87e2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &994331236
@@ -515,7 +498,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 60b2f07d35e8c4e8caf62b5581e5965c, type: 2}
+  - {fileID: 2100000, guid: f086ba11f216541c5874cdf706553a34, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -566,8 +549,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994331234}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 2
+  m_Mass: 15
+  m_Drag: 0.5
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -585,6 +568,8 @@ GameObject:
   - component: {fileID: 1197915854}
   - component: {fileID: 1197915853}
   - component: {fileID: 1197915855}
+  - component: {fileID: 1197915856}
+  - component: {fileID: 1197915857}
   m_Layer: 0
   m_Name: GamaManager
   m_TagString: Untagged
@@ -601,13 +586,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1197915852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c21746ee939402299cafc17de03b28, type: 3}
+  m_Script: {fileID: 11500000, guid: e8bda9ddb4ef246cfa163fd934e0aef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfBalls: 1000
   range: 1000
   ColorBall: {fileID: 5051421654488947319, guid: f4dbc9118df0b40a6b31b2d1ec8c9923,
     type: 3}
+  MainBall: {fileID: 994331234}
+  Terrain: {fileID: 594120890}
 --- !u!4 &1197915854
 Transform:
   m_ObjectHideFlags: 0
@@ -636,8 +623,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainBall: {fileID: 994331234}
   Camera: {fileID: 963194227}
-  BallSpeed: 2000
+  BallSpeed: 20000
   CameraXOffset: 0
   CameraYOffset: 3
   CameraZOffset: -9
   HorizontalAngle: 0
+--- !u!114 &1197915856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197915852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758a8c77ce83a4a909e0794d60ec96d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrain: {fileID: 594120890}
+  width: 4000
+  height: 4000
+  depth: 20
+  scale: 28
+--- !u!114 &1197915857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197915852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9586f9c804e49f49213cb817a0efc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: 3
+  TargedColor: {r: 0, g: 0, b: 0, a: 0}
