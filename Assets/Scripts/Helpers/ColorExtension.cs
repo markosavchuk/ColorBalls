@@ -4,25 +4,22 @@ public static class ColorExtension
 {
     public static Color ChooseColor(bool includeWhite)
     {
-        var randomColor = includeWhite ? Random.Range(0, 4) : Random.Range(0, 4);
-        switch (randomColor)
+        Color color = Color.black;
+
+
+        while (color == Color.black || (color == Color.white && !includeWhite))
         {
-            case 0:
-                return Color.red;
-            case 1:
-                return Color.green;
-            case 2:
-                return Color.blue;
-            default:
-                return Color.white;
+            color = new Color(Random.Range(0, 2), Random.Range(0, 2), Random.Range(0, 2));
         }
+
+        return color;
     }
 
-    public static Color MixColors(this Color color1, Color color2)
+    public static Color MixColors(this Color color1, Color color2, int k)
     {
         return new Color(
-            (color1.r + color2.r) / 2f,
-            (color1.g + color2.g) / 2f,
-            (color1.b + color2.b) / 2f);
+            (k * color1.r + color2.r) / (k + 1),
+            (k * color1.g + color2.g) / (k + 1),
+            (k * color1.b + color2.b) / (k + 1));
     }
 }

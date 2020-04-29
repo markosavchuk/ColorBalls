@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ColorElement
+  - SelectedColorElement
   layers:
   - Default
   - TransparentFX

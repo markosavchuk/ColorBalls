@@ -6,7 +6,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private const float MouseRorationSpeed = 3.5f;
-    private const float KeyboardRorationSpeed = 0.5f;
+    private const float KeyboardRorationSpeed = 1f;
     private const float ZoomSpeed = 5f;
     private const float MinZOffset = -8f;
     private const float MaxZOffset = -90f;

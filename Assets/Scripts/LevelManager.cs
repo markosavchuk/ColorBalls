@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
 
         for (int i=1; i < level; i++)
         {
-            targetColor = targetColor.MixColors(ColorExtension.ChooseColor(false));
+            targetColor = targetColor.MixColors(ColorExtension.ChooseColor(false), i);
         }
 
         return targetColor;
