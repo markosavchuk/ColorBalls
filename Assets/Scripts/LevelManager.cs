@@ -8,10 +8,15 @@ public class LevelManager : MonoBehaviour
     public int Level;
     public Color TargedColor;
 
+    public Material TargetColorMaterial;
+    public GameObject TargetObject;
+    public Camera UICamera;
+
     void Start()
     {
         TargedColor = GenerateLevel(Level);
-        Debug.Log("Targer color: "+TargedColor.ToString());
+        TargetColorMaterial.color = TargedColor;
+        TargetObject.transform.position = UICamera.ViewportToWorldPoint(new Vector3(LocationConstants.XRightMargin, LocationConstants.YTopMargin, -UICamera.transform.position.z));
     }
 
     private Color GenerateLevel(int level)

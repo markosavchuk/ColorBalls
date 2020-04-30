@@ -72,6 +72,7 @@ public class BallCollision : MonoBehaviour
     {
         _numberOfShowedColorsOnHorizont = 0;
         _numberOfCollidedColors = 0;
+        _currentYOfShowedColors = SelectedColorCube.transform.position.y;
 
         var exisitingObjedts = GameObject.FindGameObjectsWithTag(TagConstacts.SelectedColorElement);
         foreach (var obj in exisitingObjedts)
@@ -85,7 +86,8 @@ public class BallCollision : MonoBehaviour
         var instance = Instantiate(SelectedColorCube);
         instance.GetComponent<Renderer>().material.color = colliderColor;
 
-        var position = instance.GetComponent<Transform>().position;
+        var position = UICamera.ViewportToWorldPoint(new Vector3(LocationConstants.XLeftMargin, LocationConstants.YTopMargin, -UICamera.transform.position.z));
+
         var newPosition  = new Vector3(
             position.x + (_numberOfShowedColorsOnHorizont * ShowedColorsDistanse),
             _currentYOfShowedColors,
