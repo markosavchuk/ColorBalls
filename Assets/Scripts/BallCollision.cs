@@ -24,6 +24,8 @@ public class BallCollision : MonoBehaviour
     {
         if (collision.collider.gameObject.tag.Equals(TagConstacts.ColorElement))
         {
+            gameObject.GetComponent<AudioSource>().Play();
+
             var coliderRenderer = collision.collider.gameObject.GetComponent<Renderer>();
             var mainBallRederer = GetComponent<Renderer>();
 
