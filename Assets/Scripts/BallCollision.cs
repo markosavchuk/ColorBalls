@@ -6,7 +6,7 @@ using UnityEngine;
 public class BallCollision : MonoBehaviour
 {
     private const int ShowedColorsDistanse = 4;
-    private const float PersantageForShowedColors = 0.4f;
+    private const float PersantageForShowedColors = 0.3f;
 
     private int _numberOfShowedColorsOnHorizont;
     private int _numberOfCollidedColors = 0;
@@ -61,10 +61,12 @@ public class BallCollision : MonoBehaviour
 
             coliderRenderer.material.color = Color.black;
 
-            if (mainBallRederer.material.color.Equals(FindObjectOfType<LevelManager>()?.TargedColor))
+            FindObjectOfType<HintManager>().SetCurrentColor(mainBallRederer.material.color);
+
+            if (FindObjectOfType<LevelManager>().CheckIfPass(mainBallRederer.material.color))
             {
-                Debug.Log("PASSED");
-            }
+                FindObjectOfType<LevelManager>().PassLevel();
+            }          
         }        
     }
 

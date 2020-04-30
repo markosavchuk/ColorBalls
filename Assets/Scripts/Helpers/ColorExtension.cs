@@ -6,7 +6,6 @@ public static class ColorExtension
     {
         Color color = Color.black;
 
-
         while (color == Color.black || (color == Color.white && !includeWhite))
         {
             color = new Color(Random.Range(0, 2), Random.Range(0, 2), Random.Range(0, 2));
